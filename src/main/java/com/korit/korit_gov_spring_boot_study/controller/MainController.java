@@ -42,4 +42,9 @@ public class MainController {
         model.addAttribute("keyword2",keyword2);
         return "search.html";
     }
+
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup.html";
+    }
 }
