@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do 추가 페이지</title>
+</head>
+<body>
+    <form th:action = "@{/todomain}" method = "post">
+        제목 : <input type ="text" name="title"></br>
+        내용 : <input type ="text" name="content"></br>
+        <button type="submit">추가하기</button>
+    </form>
+</body>
+</html>
