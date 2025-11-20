@@ -1,10 +1,14 @@
 package com.korit.korit_gov_spring_boot_study.controller;
 
+import com.korit.korit_gov_spring_boot_study.dto.request.FindpostReqDto;
+import com.korit.korit_gov_spring_boot_study.dto.request.PostingReqDto;
 import com.korit.korit_gov_spring_boot_study.dto.request.SigninReqDto;
 import com.korit.korit_gov_spring_boot_study.dto.request.SignupReqDto;
+import com.korit.korit_gov_spring_boot_study.dto.response.PostingRespDto;
 import com.korit.korit_gov_spring_boot_study.dto.response.SigninRespDto;
 import com.korit.korit_gov_spring_boot_study.dto.response.SignupRespDto;
 import com.korit.korit_gov_spring_boot_study.repository.UserRepository;
+import com.korit.korit_gov_spring_boot_study.service.PostService;
 import com.korit.korit_gov_spring_boot_study.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -93,9 +97,11 @@ public class AuthController {
 //        return ResponseEntity.ok(signupRespDto); // ok() = status 200 (ok)로 설정
 //    }
     private UserService userService;
+    private PostService postService;
 
     public AuthController() {
         this.userService = UserService.getInstance();
+        this.postService = PostService.getInstance();
     }
 
     @PostMapping("/signup")
@@ -107,5 +113,21 @@ public class AuthController {
     public ResponseEntity<SigninRespDto> signin(@RequestBody SigninReqDto signinReqDto) {
         return ResponseEntity.ok(userService.signin(signinReqDto));
     }
+
+    @PostMapping("/postadd")
+    public ResponseEntity<PostingRespDto> postadd(@RequestBody PostingReqDto postingReqDto) {
+        return ResponseEntity.ok(postService.posting(postingReqDto));
+    }
+
+    @PostMapping("/postfind")
+    public ResponseEntity<PostingRespDto> Postfind(@RequestBody FindpostReqDto findpostReqDto) {
+        return ResponseEntity.ok(postService.getByRequest(findpostReqDto));
+    }
+
+    @PostMapping("/postedit")
+    public ResponseEntity<PostingRespDto> postedit(@RequestBody PostingReqDto postingReqDto) {
+        return ResponseEntity.ok(postService.editing(postingReqDto));
+    }
+
 
 }
