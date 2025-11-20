@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Data
 @Builder
 class TodoDto {
@@ -23,7 +22,6 @@ class TodoDto {
 @Controller
 public class TodoController {
     private List<TodoDto> todoList = new ArrayList<>();
-
 //    @GetMapping("/main")
 //    public String getMain() {
 //        return "main.html";

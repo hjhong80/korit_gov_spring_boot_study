@@ -11,7 +11,7 @@
 
         </tr>
         <tr th:each = "user : ${users}">
-            <td th:text = "${user.username}"></td>
+            <td th:text = "${user.name}"></td>
             <td th:text = "${user.age}"></td>
             <td th:if = "${user.age >= 20}">성인</td>
             <td th:unless = "${user.age >= 20}">미성년자</td>
