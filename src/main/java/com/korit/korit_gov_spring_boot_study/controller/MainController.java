@@ -1,6 +1,5 @@
 package com.korit.korit_gov_spring_boot_study.controller;
 
-import com.korit.korit_gov_spring_boot_study.dto.AddMemberReqDto;
 import com.korit.korit_gov_spring_boot_study.entity.Member;
 import com.korit.korit_gov_spring_boot_study.service.MemberService;
 import lombok.AllArgsConstructor;
@@ -8,7 +7,6 @@ import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -65,28 +63,28 @@ public class MainController {
         return "search.html";
     }
 
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup.html";
-    }
-
-    @PostMapping("/signup")
-    public String signupSubmit(@RequestParam String name, @RequestParam Integer age,Model model) {
-//        UserDto userDto = new UserDto(userList.size()+1, name, age);
-//        userList.add(userDto);
-        if (memberService.isDuplicatedName(name)) {
-            model.addAttribute("message", name + "은 이미 가입되어 있는 이름 입니다.");
-            return "result_page.html";
-        }
-
-        AddMemberReqDto addMemberReqDto = AddMemberReqDto.builder()
-                .name(name)
-                .age(age)
-                .build();
-        memberService.addMember(addMemberReqDto);
-        model.addAttribute("message", name + "님, 가입을 환영합니다.");
-        return "result_page.html";
-    }
+//    @GetMapping("/signup")
+//    public String signup() {
+//        return "signup.html";
+//    }
+//
+//    @PostMapping("/signup")
+//    public String signupSubmit(@RequestParam String name, @RequestParam Integer age,Model model) {
+////        UserDto userDto = new UserDto(userList.size()+1, name, age);
+////        userList.add(userDto);
+//        if (memberService.isDuplicatedName(name)) {
+//            model.addAttribute("message", name + "은 이미 가입되어 있는 이름 입니다.");
+//            return "result_page.html";
+//        }
+//
+//        AddMemberReqDto addMemberReqDto = AddMemberReqDto.builder()
+//                .name(name)
+//                .age(age)
+//                .build();
+//        memberService.addMember(addMemberReqDto);
+//        model.addAttribute("message", name + "님, 가입을 환영합니다.");
+//        return "result_page.html";
+//    }
 
     @GetMapping("/users")
     public String userList(Model model) {

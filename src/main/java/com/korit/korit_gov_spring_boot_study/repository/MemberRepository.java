@@ -1,12 +1,10 @@
 package com.korit.korit_gov_spring_boot_study.repository;
 
-import com.korit.korit_gov_spring_boot_study.dto.AddMemberReqDto;
 import com.korit.korit_gov_spring_boot_study.entity.Member;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class MemberRepository {
     private static MemberRepository instance;
