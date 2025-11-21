@@ -5,7 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class PostingRespDto<T> {
+public class PostRespDto<T> {
     private String status;
+    private String message;
     private T body;
 }
